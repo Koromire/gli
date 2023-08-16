@@ -77,7 +77,9 @@ namespace detail
 
 				texture::size_type const PaddedSize = glm::ceilMultiple(FaceSize, static_cast<texture::size_type>(4));
 
-				ImageSize += static_cast<std::uint32_t>(PaddedSize);
+				if(0 == Layer && 0 == Face)
+					ImageSize += static_cast<std::uint32_t>(PaddedSize);
+
 				Offset += PaddedSize;
 
 				GLI_ASSERT(Offset <= Memory.size());
